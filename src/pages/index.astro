@@ -6,7 +6,7 @@
 		<link rel="stylesheet" href="/src/styles/global.css" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Vincent Casuga</title>
 	</head>
 	<body class="m-0 p-0">
 		<div>
@@ -14,8 +14,9 @@
 			CASUGA
 			</h1>
 		</div>
-		<div class="mx-[20px] mt-[51px] md:mx-[240px] md:mt-[100px]">
-			<div class="grid grid-cols-3 gap-2">
+		<div class="mx-[20px] mt-[51px] md:mx-[240px] md:mt-[60px]">
+		<div id="main_div" class="flex flex-col gap-10">
+			<div id="profile" class="grid grid-cols-3 gap-2">
 				<div class="">
 					<img src="/src/assets/vince.png" alt="" class="w-auto object-cover">
 				</div>
@@ -31,7 +32,7 @@
 						<p class="text-black text-[10px] md:text-[18px] pt-2 md:pt-5">Bachelor of Science in Computer Science</p>
 						</div>
 						<div class="flex gap-2">
-							<a href="http://" class="bg-black text-[10px] md:text-[18px] w-18 px-4 py-2 h-6 md:w-[125px] md:py-5 text-white inline-flex items-center justify-center gap-1">
+							<a href="https://mail.google.com/mail/?view=cm&to=vincentcasuga17@gmail.com" target="_blank" class="bg-black text-[10px] md:text-[18px] w-18 px-4 py-2 h-6 md:w-[125px] md:py-5 text-white inline-flex items-center justify-center gap-1">
 								<svg viewBox="0 0 24 24" class="h-[1em] w-[1em] text-white" fill="currentColor" aria-hidden="true">
 									<path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
 								</svg>
@@ -47,6 +48,48 @@
 					</div>
 				</div>
 			</div>
+
+			<div id="about_me" class="my-10 md:my-20">
+				<h1 class="text-black text-[14px] md:text-[26px] font-bold mb -2 smd:mb-5">About Me</h1>
+				<p class="text-black text-[10px] md:text-[18px] inline-flex">I am an incoming 4th year student at Immaculate Conception Institution that is currently taking a Bachelor of Science in Computer Science course. I have multiple experiences in tech related projects including website, application, and game development. 
+					I have worked with the technologies such as JavaScript, PHP, C#, Java, and Python, ensuring security, reliability and scalability.
+					<br>
+					<br>
+					Currently, I am in the process of learning and developing a hardware related project that includes edge computing. This allows me to always be aligned in the current technology trends and continuously adapt to emerging technologies this modern era offers.
+					<br>
+					<br>
+					Lastly, beyond my programming background, I am also confident in my abilities in terms of digital art creation, video editing, image editing, and 3d asset creation. These skills enhances my ability to develop a more engaging and creative solutions.
+				</p>
+			</div>
+
+			<div id="tech_stack" class="my-10 md:my-20 ">
+				<h1 class="text-black text-[14px] md:text-[26px] font-bold mb -2 smd:mb-5">Tech Stack</h1>
+				<p class="text-black font-bold text-[10px] md:text-[18px] inline-flex ml-5 md:ml-15 mt-5 md:mt-12">Frontend</p>
+				<div class="grid grid-cols-6 gap-2 ml-5 md:ml-15">
+					<div> <img src="/src/assets/logos/js.png" alt="JavaScript" class="w-full object-cover"> <p class="text-black text-[10px] md:text-[18px] text-center">JavaScript</p> </div>
+					<div> <img src="/src/assets/logos/react.png" alt="React" class="w-full object-cover"> <p class="text-black text-[10px] md:text-[18px] text-center">React</p> </div>
+					<div> <img src="/src/assets/logos/bootsrap.png" alt="Bootstrap" class="w-full object-cover"> <p class="text-black text-[10px] md:text-[18px] text-center">Bootstrap</p> </div>
+					<div> <img src="/src/assets/logos/tailwind.png" alt="Tailwind CSS" class="w-full object-cover"> <p class="text-black text-[10px] md:text-[18px] text-center">Tailwind</p> </div>
+				</div>
+
+				<p class="text-black font-bold text-[10px] md:text-[18px] inline-flex ml-5 md:ml-15 mt-5 md:mt-12">Backend</p>
+				<div class="grid grid-cols-6 gap-2 ml-5 md:ml-15">
+					<div> <img src="/src/assets/logos/node.png" alt="JavaScript" class="w-full object-cover"> <p class="text-black text-[10px] md:text-[18px] text-center">Node.js</p> </div>
+					<div> <img src="/src/assets/logos/laravel.png" alt="React" class="w-full object-cover"> <p class="text-black text-[10px] md:text-[18px] text-center">Laravel</p> </div>
+					<div> <img src="/src/assets/logos/python.png" alt="Bootstrap" class="w-full object-cover"> <p class="text-black text-[10px] md:text-[18px] text-center">Python</p> </div>
+					<div> <img src="/src/assets/logos/csharp.png" alt="Tailwind CSS" class="w-full object-cover"> <p class="text-black text-[10px] md:text-[18px] text-center">C#</p> </div>
+					<div> <img src="/src/assets/logos/java.png" alt="Tailwind CSS" class="w-full object-cover"> <p class="text-black text-[10px] md:text-[18px] text-center">Java</p> </div>
+					<div> <img src="/src/assets/logos/mysql.png" alt="Tailwind CSS" class="w-full object-cover"> <p class="text-black text-[10px] md:text-[18px] text-center">MySQL</p> </div>
+					<div> <img src="/src/assets/logos/mongodb.png" alt="Tailwind CSS" class="w-full object-cover"> <p class="text-black text-[10px] md:text-[18px] text-center">MongoDB</p> </div>
+				</div>
+
+				<p class="text-black font-bold text-[10px] md:text-[18px] inline-flex ml-5 md:ml-15 mt-5 md:mt-12">Other Tools</p>
+				<div class="grid grid-cols-6 gap-2 ml-5 md:ml-15">
+					<div> <img src="/src/assets/logos/figma.png" alt="JavaScript" class="w-full object-cover"> <p class="text-black text-[10px] md:text-[18px] text-center">Figma</p> </div>
+					<div> <img src="/src/assets/logos/git.png" alt="React" class="w-full object-cover"> <p class="text-black text-[10px] md:text-[18px] text-center">Git</p> </div>
+				</div>
+			</div>
+		</div>
 		</div>
 	</body>
 </html>
