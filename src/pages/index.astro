@@ -19,6 +19,11 @@
 			</h1>
 		</div>
 
+		<div
+    id="three-container"
+    class="absolute -top-70 left-0 w-full h-[60vh] md:h-screen -z-10"
+></div>
+
 		<!-- <div class="absolute -top-60 -right-90 w-[800px] h-[800px] -z-10 
 			bg-[radial-gradient(circle_at_center,_#676767_0%,_#f5f5f5_55%,_#ffffff_100%)]">
 			</div>
@@ -200,6 +205,174 @@
 
 			</div>
 		</div>
+
+
+<script type="module">
+    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.161/build/three.module.js';
+
+    const container = document.getElementById('three-container');
+    container.style.pointerEvents = 'auto'; 
+
+    // --- SCENE SETUP ---
+    const scene = new THREE.Scene();
+    
+    // Camera
+    const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 1, 1000);
+    // Moved the camera slightly lower and closer to emphasize the "paths"
+    camera.position.set(0, 8, 20); 
+
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    container.appendChild(renderer.domElement);
+
+    // --- WAVE GRID SETUP ---
+    // Make X tightly packed to form solid lines, and Y spaced out to separate the paths
+    const amountX = 250; 
+    const amountY = 35;  
+    const separationX = 0.4; 
+    const separationY = 2.5; 
+    const count = amountX * amountY;
+
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(count * 3);
+    const scales = new Float32Array(count); 
+
+    let i = 0, j = 0;
+    for (let ix = 0; ix < amountX; ix++) {
+        for (let iy = 0; iy < amountY; iy++) {
+            // X position (tightly packed)
+            positions[i] = ix * separationX - ((amountX * separationX) / 2); 
+            // Y position (height)
+            positions[i + 1] = 0; 
+            // Z position (depth - spaced out)
+            positions[i + 2] = iy * separationY - ((amountY * separationY) / 2); 
+            
+            scales[j] = 1;
+            i += 3;
+            j++;
+        }
+    }
+
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('scale', new THREE.BufferAttribute(scales, 1));
+
+    // --- CUSTOM SHADER ---
+    const material = new THREE.ShaderMaterial({
+        uniforms: {
+            color: { value: new THREE.Color(0x111111) }, 
+        },
+        vertexShader: `
+            attribute float scale;
+            void main() {
+                vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+                // Increased base size to merge particles into lines
+                gl_PointSize = scale * (20.0 / -mvPosition.z); 
+                gl_Position = projectionMatrix * mvPosition;
+            }
+        `,
+        fragmentShader: `
+            uniform vec3 color;
+            void main() {
+                float d = distance(gl_PointCoord, vec2(0.5, 0.5));
+                float alpha = 1.0 - smoothstep(0.4, 0.5, d);
+                if (alpha < 0.01) discard;
+                gl_FragColor = vec4(color, alpha * 0.8);
+            }
+        `,
+        transparent: true,
+        depthWrite: false,
+        blending: THREE.NormalBlending
+    });
+
+    const particles = new THREE.Points(geometry, material);
+    scene.add(particles);
+
+    // --- INTERACTION LOGIC ---
+    const mouse = new THREE.Vector2(-100, -100);
+    const mouse3D = new THREE.Vector3(0, 0, 0);
+    const raycaster = new THREE.Raycaster();
+    const plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0); 
+
+    function updateMousePosition(clientX, clientY) {
+        const rect = container.getBoundingClientRect();
+        mouse.x = ((clientX - rect.left) / rect.width) * 2 - 1;
+        mouse.y = -((clientY - rect.top) / rect.height) * 2 + 1;
+        
+        raycaster.setFromCamera(mouse, camera);
+        raycaster.ray.intersectPlane(plane, mouse3D);
+    }
+
+    window.addEventListener('mousemove', (e) => updateMousePosition(e.clientX, e.clientY));
+    window.addEventListener('touchmove', (e) => updateMousePosition(e.touches[0].clientX, e.touches[0].clientY), { passive: false });
+
+    // --- ANIMATION LOOP ---
+    let time = 0;
+
+    function animate() {
+        requestAnimationFrame(animate);
+
+        const positions = particles.geometry.attributes.position.array;
+        const scales = particles.geometry.attributes.scale.array;
+
+        let i = 0, j = 0;
+        for (let ix = 0; ix < amountX; ix++) {
+            for (let iy = 0; iy < amountY; iy++) {
+                // 1. Smoother, elongated sine waves for obvious pathing
+                let y = Math.sin((ix * 0.08) + time) * 2.5 + Math.sin((iy * 0.15) + time) * 1.5;
+                let scale = (Math.sin((ix * 0.08) + time) + 1.5) * 1.5 + (Math.sin((iy * 0.15) + time) + 1) * 1.5;
+
+                // 2. Mouse Interaction
+                const dx = positions[i] - mouse3D.x;
+                const dz = positions[i + 2] - mouse3D.z;
+                const dist = Math.sqrt(dx * dx + dz * dz);
+
+                const interactRadius = 12;
+                if (dist < interactRadius) {
+                    const influence = (interactRadius - dist) / interactRadius;
+                    y += influence * 8; 
+                    scale += influence * 6; 
+                }
+
+                positions[i + 1] = y;
+                scales[j] = scale;
+
+                i += 3;
+                j++;
+            }
+        }
+
+        particles.geometry.attributes.position.needsUpdate = true;
+        particles.geometry.attributes.scale.needsUpdate = true;
+
+        time += 0.025; // Slightly slower, more majestic speed
+
+        // Gentle camera parallax
+        camera.position.x += (mouse.x * 5 - camera.position.x) * 0.05;
+        camera.lookAt(0, 0, 0);
+
+        renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // --- RESIZE HANDLER ---
+    window.addEventListener('resize', () => {
+        const width = container.clientWidth;
+        const height = container.clientHeight;
+
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(width, height);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    });
+
+    window.dispatchEvent(new Event('resize'));
+</script>
+
+
+
 	</body>
 
 </html>
