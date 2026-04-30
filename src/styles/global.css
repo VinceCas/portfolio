@@ -2,12 +2,41 @@
 @import '@fontsource/inter/700.css';
 @import "tailwindcss";
 
+html {
+	scroll-behavior: smooth;
+	scroll-padding-block: clamp(1rem, 7vh, 5rem);
+}
 
 body {
   font-family: 'Inter', sans-serif;
   background: #ffffff;
   color: #111111;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.snap-section {
+	scroll-margin-block: clamp(1rem, 7vh, 5rem);
+}
+
+.snap-section > * {
+	opacity: 0;
+	transform: translateY(18px);
+	transition:
+		opacity 0.65s ease,
+		transform 0.65s ease;
+}
+
+.snap-section.is-visible > * {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.snap-section.is-visible > *:nth-child(2) {
+	transition-delay: 0.1s;
+}
+
+.snap-section.is-visible > *:nth-child(3) {
+	transition-delay: 0.18s;
 }
 
 .theme-toggle {
@@ -54,6 +83,40 @@ body {
 	display: none;
 }
 
+.minimal-3d-section {
+	width: min(100% - 4rem, 980px);
+	height: clamp(180px, 28vw, 420px);
+	margin: clamp(0.75rem, 2vw, 1.75rem) auto clamp(2rem, 5vw, 5rem);
+	border-top: 1px solid #111111;
+	border-bottom: 1px solid #111111;
+	overflow: hidden;
+	cursor: grab;
+	touch-action: none;
+	transition: border-color 0.3s ease;
+}
+
+.minimal-3d-section:active {
+	cursor: grabbing;
+}
+
+#minimal-3d-canvas {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	.snap-section > * {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+}
+
 .night-mode body {
 	background: #0e0f12;
 	color: #f3f4f6;
@@ -68,6 +131,10 @@ body {
 .night-mode .theme-toggle:hover {
 	color: #0e0f12;
 	background: #f3f4f6;
+}
+
+.night-mode .minimal-3d-section {
+	border-color: #f3f4f6;
 }
 
 .night-mode .theme-toggle .sun-icon {

@@ -16,11 +16,17 @@
 
 	<body class="m-0 p-0 overflow-x-hidden">
 
-		<div class="w-full overflow-hidden">
-			<h1 
-				class="text-black font-bold text-[27vw] tracking-[-0.12em] leading-[0.8] whitespace-nowrap m-0 p-0">
-				CASUGA
-			</h1>
+		<div class="snap-section">
+			<div class="w-full overflow-hidden">
+				<h1 
+					class="text-black font-bold text-[27vw] tracking-[-0.12em] leading-[0.8] whitespace-nowrap m-0 p-0">
+					CASUGA
+				</h1>
+			</div>
+
+			<section class="minimal-3d-section" aria-label="Interactive 3D portfolio mark">
+				<canvas id="minimal-3d-canvas"></canvas>
+			</section>
 		</div>
 
 
@@ -32,6 +38,7 @@
 		<div class="mx-8 mt-8 sm:mx-34 sm:mt-16 md:mx-37 md:mt-14 lg:mx- lg:mt-16 xl:mx-[520px] xl:mt-[100px]">
 			<div id="main_div" class="flex flex-col gap-10">
 
+				<div class="snap-section">
 				<div id="profile" class="grid grid-cols-3 gap-0 m-0 p-0">
 					<div class="m-0 p-0">
 						<img
@@ -109,8 +116,9 @@
 						Lastly, beyond my programming background, I am also confident in my abilities in terms of digital art creation, video editing, image editing, and 3d asset creation. These skills enhances my ability to develop a more engaging and creative solutions.
 					</p>
 				</div>
+				</div>
 
-				<div id="tech_stack" class="my-6 sm:my-10 md:my-14 lg:my-20">
+				<div id="tech_stack" class="snap-section my-6 sm:my-10 md:my-14 lg:my-20">
 					<h1 class="text-black text-[13px] sm:text-[18px] md:text-[22px] lg:text-[26px] font-bold mb-2 sm:mb-4 md:mb-5">Tech Stack</h1>
 
 					<p class="text-black font-bold text-[9px] sm:text-[13px] md:text-[15px] lg:text-[17px] xl:text-[18px] ml-3 sm:ml-6 md:ml-10 lg:ml-15 mt-3 sm:mt-5 md:mt-8 lg:mt-12">Frontend</p>
@@ -139,7 +147,7 @@
 					</div>
 				</div>
 
-				<div id="projects" class="my-6 sm:my-10 md:my-14 lg:my-20">
+				<div id="projects" class="snap-section my-6 sm:my-10 md:my-14 lg:my-20">
 					<h1 class="text-black text-[13px] sm:text-[18px] md:text-[22px] lg:text-[26px] font-bold mb-2 sm:mb-4 md:mb-5">Projects</h1>
 					
 					<div class="grid grid-cols-2 gap-10">
@@ -149,7 +157,7 @@
 					</div>
 				</div>
 
-				<div id="credentials" class="my-6 sm:my-10 md:my-14 lg:my-20">
+				<div id="credentials" class="snap-section my-6 sm:my-10 md:my-14 lg:my-20">
 					<h1 class="text-black text-[13px] sm:text-[18px] md:text-[22px] lg:text-[26px] font-bold mb-2 sm:mb-4 md:mb-5">Certifications & Badges</h1>
 					
 					<div class="grid grid-cols-1 gap-3 md:gap-6 ">
@@ -192,7 +200,7 @@
 					</div>
 				</div>
 
-				<div id="contacts" class="my-6 sm:my-10 md:my-14 lg:my-20">
+				<div id="contacts" class="snap-section my-6 sm:my-10 md:my-14 lg:my-20">
     				<h1 class="text-black text-[13px] sm:text-[18px] md:text-[22px] lg:text-[26px] font-bold mb-2 sm:mb-4 md:mb-5">Contacts</h1>
 
     				<div class="grid grid-cols-1 gap-10">
@@ -248,6 +256,10 @@
 
 			</div>
 		</div>
+
+		<script type="module" src="/scripts/minimal-3d.js"></script>
+		<script type="module" src="/scripts/section-snap.js"></script>
+		<script type="module" src="/scripts/reveal-on-scroll.js"></script>
 	</body>
 
 </html>
