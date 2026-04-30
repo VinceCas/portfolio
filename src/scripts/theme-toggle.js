@@ -7,16 +7,16 @@ if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
 }
 
 const profileFrames = [
-	'/src/assets/profile_transfrom/the-grey-background-slowly-transitions-to-a-solid-_001.png',
-	'/src/assets/profile_transfrom/the-grey-background-slowly-transitions-to-a-solid-_002.png',
-	'/src/assets/profile_transfrom/the-grey-background-slowly-transitions-to-a-solid-_003.png',
-	'/src/assets/profile_transfrom/the-grey-background-slowly-transitions-to-a-solid-_004.png',
-	'/src/assets/profile_transfrom/the-grey-background-slowly-transitions-to-a-solid-_005.png',
-	'/src/assets/profile_transfrom/the-grey-background-slowly-transitions-to-a-solid-_006.png',
-	'/src/assets/profile_transfrom/the-grey-background-slowly-transitions-to-a-solid-_007.png',
-	'/src/assets/profile_transfrom/the-grey-background-slowly-transitions-to-a-solid-_008.png',
-	'/src/assets/profile_transfrom/the-grey-background-slowly-transitions-to-a-solid-_009.png',
-	'/src/assets/profile_transfrom/the-grey-background-slowly-transitions-to-a-solid-_010.png',
+	new URL('../assets/profile_transfrom/the-grey-background-slowly-transitions-to-a-solid-_001.png', import.meta.url).href,
+	new URL('../assets/profile_transfrom/the-grey-background-slowly-transitions-to-a-solid-_002.png', import.meta.url).href,
+	new URL('../assets/profile_transfrom/the-grey-background-slowly-transitions-to-a-solid-_003.png', import.meta.url).href,
+	new URL('../assets/profile_transfrom/the-grey-background-slowly-transitions-to-a-solid-_004.png', import.meta.url).href,
+	new URL('../assets/profile_transfrom/the-grey-background-slowly-transitions-to-a-solid-_005.png', import.meta.url).href,
+	new URL('../assets/profile_transfrom/the-grey-background-slowly-transitions-to-a-solid-_006.png', import.meta.url).href,
+	new URL('../assets/profile_transfrom/the-grey-background-slowly-transitions-to-a-solid-_007.png', import.meta.url).href,
+	new URL('../assets/profile_transfrom/the-grey-background-slowly-transitions-to-a-solid-_008.png', import.meta.url).href,
+	new URL('../assets/profile_transfrom/the-grey-background-slowly-transitions-to-a-solid-_009.png', import.meta.url).href,
+	new URL('../assets/profile_transfrom/the-grey-background-slowly-transitions-to-a-solid-_010.png', import.meta.url).href,
 ];
 const profileLightImage = profileFrames[0];
 const profileDarkImage = profileFrames[profileFrames.length - 1];

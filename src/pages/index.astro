@@ -1,5 +1,29 @@
 ---
 import '../styles/global.css';
+import profileFrameOne from '../assets/profile_transfrom/the-grey-background-slowly-transitions-to-a-solid-_001.png';
+import javascriptLogo from '../assets/logos/javascript.svg';
+import reactLogo from '../assets/logos/react.svg';
+import bootstrapLogo from '../assets/logos/bootstrap.svg';
+import tailwindLogo from '../assets/logos/tailwind.svg';
+import nodeLogo from '../assets/logos/node.svg';
+import laravelLogo from '../assets/logos/laravel.svg';
+import pythonLogo from '../assets/logos/python.svg';
+import csharpLogo from '../assets/logos/csharp.svg';
+import javaLogo from '../assets/logos/java.svg';
+import mysqlLogo from '../assets/logos/mysql.svg';
+import mongodbLogo from '../assets/logos/mongodb.svg';
+import figmaLogo from '../assets/logos/figma.svg';
+import gitLogo from '../assets/logos/git.svg';
+import websiteImage from '../assets/images/website.png';
+import gameImage from '../assets/images/game.png';
+import eyewearImage from '../assets/images/eyewear.png';
+import linkedinLogo from '../assets/logos/linkedin.svg';
+import githubLogo from '../assets/logos/github.svg';
+import facebookLogo from '../assets/logos/facebook.svg';
+import gmailLogo from '../assets/logos/gmail.svg';
+import phoneLogo from '../assets/logos/phone.svg';
+
+const assetSrc = (asset) => typeof asset === 'string' ? asset : asset.src;
 ---
 
 <html lang="en">
@@ -46,7 +70,7 @@ import '../styles/global.css';
 					<div class="m-0 p-0">
 						<img
 							id="profile-image"
-							src="/src/assets/profile_transfrom/the-grey-background-slowly-transitions-to-a-solid-_001.png"
+							src={assetSrc(profileFrameOne)}
 							alt="Vincent Casuga"
 							class="w-auto object-cover"
 						>
@@ -126,27 +150,27 @@ import '../styles/global.css';
 
 					<p class="text-black font-bold text-[9px] sm:text-[13px] md:text-[15px] lg:text-[17px] xl:text-[18px] ml-3 sm:ml-6 md:ml-10 lg:ml-15 mt-3 sm:mt-5 md:mt-8 lg:mt-12">Frontend</p>
 					<div class="grid grid-cols-4 sm:grid-cols-6 gap-10 ml-3 sm:ml-6 md:ml-10 lg:ml-15 mt-3 md:mt-6">
-						<div> <img src="/src/assets/logos/javascript.svg" alt="JavaScript" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">JavaScript</p> </div>
-						<div> <img src="/src/assets/logos/react.svg" alt="React" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">React</p> </div>
-						<div> <img src="/src/assets/logos/bootstrap.svg" alt="Bootstrap" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Bootstrap</p> </div>
-						<div> <img src="/src/assets/logos/tailwind.svg" alt="Tailwind CSS" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Tailwind</p> </div>
+						<div> <img src={assetSrc(javascriptLogo)} alt="JavaScript" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">JavaScript</p> </div>
+						<div> <img src={assetSrc(reactLogo)} alt="React" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">React</p> </div>
+						<div> <img src={assetSrc(bootstrapLogo)} alt="Bootstrap" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Bootstrap</p> </div>
+						<div> <img src={assetSrc(tailwindLogo)} alt="Tailwind CSS" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Tailwind</p> </div>
 					</div>
 
 					<p class="text-black font-bold text-[9px] sm:text-[13px] md:text-[15px] lg:text-[17px] xl:text-[18px] ml-3 sm:ml-6 md:ml-10 lg:ml-15 mt-3 sm:mt-5 md:mt-8 lg:mt-12">Backend</p>
 					<div class="grid grid-cols-4 sm:grid-cols-6 gap-10 ml-3 sm:ml-6 md:ml-10 lg:ml-15 mt-3 md:mt-6">
-						<div> <img src="/src/assets/logos/node.svg" alt="Node.js" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Node.js</p> </div>
-						<div> <img src="/src/assets/logos/laravel.svg" alt="Laravel" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Laravel</p> </div>
-						<div> <img src="/src/assets/logos/python.svg" alt="Python" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Python</p> </div>
-						<div> <img src="/src/assets/logos/csharp.svg" alt="C#" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">C#</p> </div>
-						<div> <img src="/src/assets/logos/java.svg" alt="Java" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Java</p> </div>
-						<div> <img src="/src/assets/logos/mysql.svg" alt="MySQL" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">MySQL</p> </div>
-						<div> <img src="/src/assets/logos/mongodb.svg" alt="MongoDB" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">MongoDB</p> </div>
+						<div> <img src={assetSrc(nodeLogo)} alt="Node.js" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Node.js</p> </div>
+						<div> <img src={assetSrc(laravelLogo)} alt="Laravel" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Laravel</p> </div>
+						<div> <img src={assetSrc(pythonLogo)} alt="Python" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Python</p> </div>
+						<div> <img src={assetSrc(csharpLogo)} alt="C#" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">C#</p> </div>
+						<div> <img src={assetSrc(javaLogo)} alt="Java" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Java</p> </div>
+						<div> <img src={assetSrc(mysqlLogo)} alt="MySQL" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">MySQL</p> </div>
+						<div> <img src={assetSrc(mongodbLogo)} alt="MongoDB" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">MongoDB</p> </div>
 					</div>
 
 					<p class="text-black font-bold text-[9px] sm:text-[13px] md:text-[15px] lg:text-[17px] xl:text-[18px] ml-3 sm:ml-6 md:ml-10 lg:ml-15 mt-3 sm:mt-5 md:mt-8 lg:mt-12">Other Tools</p>
 					<div class="grid grid-cols-4 sm:grid-cols-6 gap-10 ml-3 sm:ml-6 md:ml-10 lg:ml-15 mt-3 md:mt-6">
-						<div> <img src="/src/assets/logos/figma.svg" alt="Figma" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Figma</p> </div>
-						<div> <img src="/src/assets/logos/git.svg" alt="Git" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Git</p> </div>
+						<div> <img src={assetSrc(figmaLogo)} alt="Figma" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Figma</p> </div>
+						<div> <img src={assetSrc(gitLogo)} alt="Git" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Git</p> </div>
 					</div>
 				</div>
 
@@ -154,9 +178,9 @@ import '../styles/global.css';
 					<h1 class="text-black text-[13px] sm:text-[18px] md:text-[22px] lg:text-[26px] font-bold mb-2 sm:mb-4 md:mb-5">Projects</h1>
 					
 					<div class="grid grid-cols-2 gap-10">
-						<div> <img src="/src/assets/images/website.png" alt="JavaScript" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Joelskie E-commerce Website</p> </div>
-						<div> <img src="/src/assets/images/game.png" alt="React" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Echoes of Maktan: Vengeance Unbound</p> </div>
-						<div> <img src="/src/assets/images/eyewear.png" alt="Bootstrap" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Smart Eyewear for Visually Impaire Individuals</p> </div>
+						<div> <img src={assetSrc(websiteImage)} alt="Joelskie E-commerce Website" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Joelskie E-commerce Website</p> </div>
+						<div> <img src={assetSrc(gameImage)} alt="Echoes of Maktan: Vengeance Unbound" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Echoes of Maktan: Vengeance Unbound</p> </div>
+						<div> <img src={assetSrc(eyewearImage)} alt="Smart Eyewear for Visually Impaire Individuals" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Smart Eyewear for Visually Impaire Individuals</p> </div>
 					</div>
 				</div>
 
@@ -210,7 +234,7 @@ import '../styles/global.css';
     				    <a href="https://www.linkedin.com/in/vince-cas/" target="_blank">
     				        <div class="flex items-center gap-3">
     				            <div class="w-6 sm:w-8 md:w-10 flex items-center justify-center shrink-0">
-    				                <img src="/src/assets/logos/linkedin.svg" alt="linkedin" class="w-full h-full object-contain">
+    				                <img src={assetSrc(linkedinLogo)} alt="linkedin" class="w-full h-full object-contain">
     				            </div>
     				            <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-start">LinkedIn</p>
     				        </div>
@@ -219,7 +243,7 @@ import '../styles/global.css';
     				    <a href="https://github.com/VinceCas" target="_blank">
     				        <div class="flex items-center gap-3">
     				            <div class="w-6 sm:w-8 md:w-10 flex items-center justify-center shrink-0">
-    				                <img src="/src/assets/logos/github.svg" alt="github" class="w-full h-full object-contain">
+    				                <img src={assetSrc(githubLogo)} alt="github" class="w-full h-full object-contain">
     				            </div>
     				            <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-start">Github</p>
     				        </div>
@@ -228,7 +252,7 @@ import '../styles/global.css';
     				    <a href="https://www.facebook.com/biiiinssss" target="_blank">
     				        <div class="flex items-center gap-3">
     				            <div class="w-6 sm:w-8 md:w-10 flex items-center justify-center shrink-0">
-    				                <img src="/src/assets/logos/facebook.svg" alt="facebook" class="w-full h-full object-contain">
+    				                <img src={assetSrc(facebookLogo)} alt="facebook" class="w-full h-full object-contain">
     				            </div>
     				            <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-start">Facebook</p>
     				        </div>
@@ -237,7 +261,7 @@ import '../styles/global.css';
     				    <a href="https://mail.google.com/mail/u/0/?to=vincentcasuga17@gmail.com&fs=1&tf=cm" target="_blank">
     				        <div class="flex items-center gap-3">
     				            <div class="w-6 sm:w-8 md:w-10 flex items-center justify-center shrink-0">
-    				                <img src="/src/assets/logos/gmail.svg" alt="gmail" class="w-full h-full object-contain">
+    				                <img src={assetSrc(gmailLogo)} alt="gmail" class="w-full h-full object-contain">
     				            </div>
     				            <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-start">Gmail</p>
     				        </div>
@@ -246,7 +270,7 @@ import '../styles/global.css';
     				    <a href="javascript:void(0)" onclick="navigator.clipboard.writeText('+639954536797').then(() => { const el = document.getElementById('copy-text'); el.style.opacity = '1'; setTimeout(() => el.style.opacity = '0', 2000); })" class="cursor-pointer inline-block">
 						    <div class="flex items-center gap-3">
 						        <div class="w-6 sm:w-8 md:w-10 flex items-center justify-center shrink-0">
-						            <img src="/src/assets/logos/phone.svg" alt="phone" class="w-full h-full object-contain">
+						            <img src={assetSrc(phoneLogo)} alt="phone" class="w-full h-full object-contain">
 						        </div>
 						        <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-start">Phone</p>
 							
