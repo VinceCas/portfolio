@@ -7,11 +7,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Vincent Casuga</title>
+		<script>
+			import '../scripts/theme-toggle.js';
+		</script>
 	</head>
 
 
 
 	<body class="m-0 p-0 overflow-x-hidden">
+
 		<div class="w-full overflow-hidden">
 			<h1 
 				class="text-black font-bold text-[27vw] tracking-[-0.12em] leading-[0.8] whitespace-nowrap m-0 p-0">
@@ -19,10 +23,6 @@
 			</h1>
 		</div>
 
-		<div
-    id="three-container"
-    class="absolute -top-70 left-0 w-full h-[60vh] md:h-screen -z-10"
-></div>
 
 		<!-- <div class="absolute -top-60 -right-90 w-[800px] h-[800px] -z-10 
 			bg-[radial-gradient(circle_at_center,_#676767_0%,_#f5f5f5_55%,_#ffffff_100%)]">
@@ -34,11 +34,41 @@
 
 				<div id="profile" class="grid grid-cols-3 gap-0 m-0 p-0">
 					<div class="m-0 p-0">
-						<img src="/src/assets/vince.png" alt="Vincent Casuga" class="w-auto object-cover">
+						<img
+							id="profile-image"
+							src="/src/assets/profile_transfrom/the-grey-background-slowly-transitions-to-a-solid-_001.png"
+							alt="Vincent Casuga"
+							class="w-auto object-cover"
+						>
 					</div>
 					<div class="col-span-2 flex flex-col justify-between pl-2 sm:pl-4">
 						<div class="space-y-0">
-							<h2 class="text-black text-[13px] sm:text-[20px] md:text-[28px] lg:text-[34px] xl:text-[40px] font-bold">Vincent Josh Casuga</h2>
+							<div class="flex items-start justify-between gap-2">
+								<h2 class="text-black text-[13px] sm:text-[20px] md:text-[28px] lg:text-[34px] xl:text-[40px] font-bold">Vincent Josh Casuga</h2>
+								<button
+									id="theme-toggle"
+									class="theme-toggle"
+									type="button"
+									aria-label="Switch to night mode"
+									aria-pressed="false"
+									title="Toggle night mode"
+								>
+									<svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+										<circle cx="12" cy="12" r="4"></circle>
+										<path d="M12 2v2"></path>
+										<path d="M12 20v2"></path>
+										<path d="m4.93 4.93 1.41 1.41"></path>
+										<path d="m17.66 17.66 1.41 1.41"></path>
+										<path d="M2 12h2"></path>
+										<path d="M20 12h2"></path>
+										<path d="m6.34 17.66-1.41 1.41"></path>
+										<path d="m19.07 4.93-1.41 1.41"></path>
+									</svg>
+									<svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+										<path d="M21 14.3A8.8 8.8 0 0 1 9.7 3a7 7 0 1 0 11.3 11.3z"></path>
+									</svg>
+								</button>
+							</div>
 							<p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[17px] xl:text-[18px] inline-flex items-center gap-0.5 flex-wrap">
 								<svg viewBox="0 0 24 24" class="h-[1em] w-[1em] text-black shrink-0" fill="currentColor" aria-hidden="true">
 									<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
@@ -54,11 +84,13 @@
 								</svg>
 								Email
 							</a>
-							<a href="http://" class="bg-black text-[10px] md:text-[18px] w-18 px-4 py-2 h-6 md:w-[125px] md:py-5 text-white inline-flex items-center justify-center gap-1">
-								<svg viewBox="0 0 24 24" class="h-[1em] w-[1em] text-white" fill="currentColor" aria-hidden="true">
-									<path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 011 1v3.5a1 1 0 01-1 1C10.07 21.5 2.5 13.93 2.5 4a1 1 0 011-1H7a1 1 0 011 1c0 1.35.27 2.67.76 3.88a1 1 0 01-.21 1.11l-2.2 2.2z"/>
-								</svg>
-								Call
+							<a href="javascript:void(0)" 
+								onclick="navigator.clipboard.writeText('+639954536797').then(() => { const textSpan = document.getElementById('btn-text'); textSpan.innerText = 'Copied'; setTimeout(() => { textSpan.innerText = 'Call'; }, 2000); })"
+								class="bg-black text-[10px] md:text-[18px] w-18 px-4 py-2 h-6 md:w-[125px] md:py-5 text-white inline-flex items-center justify-center gap-1 transition-all duration-300">
+							    <svg viewBox="0 0 24 24" class="h-[1em] w-[1em] text-white" fill="currentColor" aria-hidden="true">
+							        <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 011 1v3.5a1 1 0 01-1 1C10.07 21.5 2.5 13.93 2.5 4a1 1 0 011-1H7a1 1 0 011 1c0 1.35.27 2.67.76 3.88a1 1 0 01-.21 1.11l-2.2 2.2z"/>
+							    </svg>
+							    <span id="btn-text">Call</span>
 							</a>
 						</div>
 
@@ -122,7 +154,7 @@
 					
 					<div class="grid grid-cols-1 gap-3 md:gap-6 ">
 						<div class="bg-[#E8E8E8] px-9 py-5 hover:bg-[#d4d4d4] transition-colors duration-300"> 
-							<a href="" target="_blank">
+							<a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=5597ED10E1986D366D17F48D5786F34BA5B743EFCDFEF1BD24F0AFF20AF1934A" target="_blank">
 							<p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-start font-bold">
 								Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate
 							</p> 
@@ -131,7 +163,7 @@
 						</div>
 
 						<div class="bg-[#E8E8E8] px-9 py-5 hover:bg-[#d4d4d4] transition-colors duration-300"> 
-							<a href="" target="_blank">
+							<a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=49EBD669872ECE576276914FC27CB479B500028469EAB4858183F04282D6A0EE" target="_blank">
 							<p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-start font-bold">
 								Oracle Cloud Infrastructure 2025 Certified Foundations Associate
 							</p> 
@@ -140,7 +172,7 @@
 						</div>
 
 						<div class="bg-[#E8E8E8] px-9 py-5 hover:bg-[#d4d4d4] transition-colors duration-300"> 
-							<a href="" target="_blank">
+							<a href="https://www.credly.com/badges/4642a2f1-df3b-4d8d-a410-7b8222656c70/linked_in_profile" target="_blank">
 							<p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-start font-bold">
 								CISCO NETACAD Introduction to Cybersecurity Certificate
 							</p> 
@@ -149,7 +181,7 @@
 						</div>
 
 						<div class="bg-[#E8E8E8] px-9 py-5 hover:bg-[#d4d4d4] transition-colors duration-300"> 
-							<a href="" target="_blank">
+							<a href="https://www.credly.com/badges/b693b490-8416-4df0-ba06-575a9ce0c539/linked_in_profile" target="_blank">
 							<p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-start font-bold">
 								CISCO NETACAD Networking Basics Certificate
 							</p> 
@@ -161,218 +193,61 @@
 				</div>
 
 				<div id="contacts" class="my-6 sm:my-10 md:my-14 lg:my-20">
-					<h1 class="text-black text-[13px] sm:text-[18px] md:text-[22px] lg:text-[26px] font-bold mb-2 sm:mb-4 md:mb-5">Contacts</h1>
-					
-					<div class="grid grid-cols-1 gap-10">
-						<a href="" target="_blank">
-							<div class="flex items-center gap-1">					
-								<img src="/src/assets/logos/linkedin.svg" alt="linkedin" class=" w-[10%] object-cover">
-								<p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-start">LinkedIn</p> 							
-							</div>
-						</a>
+    				<h1 class="text-black text-[13px] sm:text-[18px] md:text-[22px] lg:text-[26px] font-bold mb-2 sm:mb-4 md:mb-5">Contacts</h1>
 
-						<a href="" target="_blank">
-							<div class="flex items-center gap-1">					
-								<img src="/src/assets/logos/github.svg" alt="linkedin" class=" w-[7%] object-cover ml-3">
-								<p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-start">Github</p> 							
-							</div>
+    				<div class="grid grid-cols-1 gap-10">
+    				    <a href="https://www.linkedin.com/in/vince-cas/" target="_blank">
+    				        <div class="flex items-center gap-3">
+    				            <div class="w-6 sm:w-8 md:w-10 flex items-center justify-center shrink-0">
+    				                <img src="/src/assets/logos/linkedin.svg" alt="linkedin" class="w-full h-full object-contain">
+    				            </div>
+    				            <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-start">LinkedIn</p>
+    				        </div>
+    				    </a>
+					
+    				    <a href="https://github.com/VinceCas" target="_blank">
+    				        <div class="flex items-center gap-3">
+    				            <div class="w-6 sm:w-8 md:w-10 flex items-center justify-center shrink-0">
+    				                <img src="/src/assets/logos/github.svg" alt="github" class="w-full h-full object-contain">
+    				            </div>
+    				            <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-start">Github</p>
+    				        </div>
+    				    </a>
+					
+    				    <a href="https://www.facebook.com/biiiinssss" target="_blank">
+    				        <div class="flex items-center gap-3">
+    				            <div class="w-6 sm:w-8 md:w-10 flex items-center justify-center shrink-0">
+    				                <img src="/src/assets/logos/facebook.svg" alt="facebook" class="w-full h-full object-contain">
+    				            </div>
+    				            <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-start">Facebook</p>
+    				        </div>
+    				    </a>
+					
+    				    <a href="https://mail.google.com/mail/u/0/?to=vincentcasuga17@gmail.com&fs=1&tf=cm" target="_blank">
+    				        <div class="flex items-center gap-3">
+    				            <div class="w-6 sm:w-8 md:w-10 flex items-center justify-center shrink-0">
+    				                <img src="/src/assets/logos/gmail.svg" alt="gmail" class="w-full h-full object-contain">
+    				            </div>
+    				            <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-start">Gmail</p>
+    				        </div>
+    				    </a>
+					
+    				    <a href="javascript:void(0)" onclick="navigator.clipboard.writeText('+639954536797').then(() => { const el = document.getElementById('copy-text'); el.style.opacity = '1'; setTimeout(() => el.style.opacity = '0', 2000); })" class="cursor-pointer inline-block">
+						    <div class="flex items-center gap-3">
+						        <div class="w-6 sm:w-8 md:w-10 flex items-center justify-center shrink-0">
+						            <img src="/src/assets/logos/phone.svg" alt="phone" class="w-full h-full object-contain">
+						        </div>
+						        <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-start">Phone</p>
+							
+						        
+						        <span id="copy-text" class="text-gray-600 text-[10px] text-end sm:text-sm font-medium opacity-0 transition-opacity duration-300">Copied!</span>
+						    </div>
 						</a>
-						
-						<a href="" target="_blank">
-							<div class="flex items-center gap-1">					
-								<img src="/src/assets/logos/facebook.svg" alt="linkedin" class=" w-[10%] object-cover">
-								<p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-start">Facebook</p> 							
-							</div>
-						</a>
-						
-						<a href="" target="_blank">
-							<div class="flex items-center gap-1">					
-								<img src="/src/assets/logos/gmail.svg" alt="linkedin" class="w-[6%] object-cover ml-4">
-								<p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-start">Gmail</p> 							
-							</div>
-						</a>
-						
-						<a href="" target="_blank">
-							<div class="flex items-center gap-1">					
-								<img src="/src/assets/logos/phone.svg" alt="linkedin" class=" w-[7%] object-cover ml-3">
-								<p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-start">Phone</p> 							
-							</div>
-						</a>
-						
-						
-					</div>
+    				</div>
 				</div>
 
 			</div>
 		</div>
-
-
-<script type="module">
-    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.161/build/three.module.js';
-
-    const container = document.getElementById('three-container');
-    container.style.pointerEvents = 'auto'; 
-
-    // --- SCENE SETUP ---
-    const scene = new THREE.Scene();
-    
-    // Camera
-    const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 1, 1000);
-    // Moved the camera slightly lower and closer to emphasize the "paths"
-    camera.position.set(0, 8, 20); 
-
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    container.appendChild(renderer.domElement);
-
-    // --- WAVE GRID SETUP ---
-    // Make X tightly packed to form solid lines, and Y spaced out to separate the paths
-    const amountX = 250; 
-    const amountY = 35;  
-    const separationX = 0.4; 
-    const separationY = 2.5; 
-    const count = amountX * amountY;
-
-    const geometry = new THREE.BufferGeometry();
-    const positions = new Float32Array(count * 3);
-    const scales = new Float32Array(count); 
-
-    let i = 0, j = 0;
-    for (let ix = 0; ix < amountX; ix++) {
-        for (let iy = 0; iy < amountY; iy++) {
-            // X position (tightly packed)
-            positions[i] = ix * separationX - ((amountX * separationX) / 2); 
-            // Y position (height)
-            positions[i + 1] = 0; 
-            // Z position (depth - spaced out)
-            positions[i + 2] = iy * separationY - ((amountY * separationY) / 2); 
-            
-            scales[j] = 1;
-            i += 3;
-            j++;
-        }
-    }
-
-    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    geometry.setAttribute('scale', new THREE.BufferAttribute(scales, 1));
-
-    // --- CUSTOM SHADER ---
-    const material = new THREE.ShaderMaterial({
-        uniforms: {
-            color: { value: new THREE.Color(0x111111) }, 
-        },
-        vertexShader: `
-            attribute float scale;
-            void main() {
-                vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-                // Increased base size to merge particles into lines
-                gl_PointSize = scale * (20.0 / -mvPosition.z); 
-                gl_Position = projectionMatrix * mvPosition;
-            }
-        `,
-        fragmentShader: `
-            uniform vec3 color;
-            void main() {
-                float d = distance(gl_PointCoord, vec2(0.5, 0.5));
-                float alpha = 1.0 - smoothstep(0.4, 0.5, d);
-                if (alpha < 0.01) discard;
-                gl_FragColor = vec4(color, alpha * 0.8);
-            }
-        `,
-        transparent: true,
-        depthWrite: false,
-        blending: THREE.NormalBlending
-    });
-
-    const particles = new THREE.Points(geometry, material);
-    scene.add(particles);
-
-    // --- INTERACTION LOGIC ---
-    const mouse = new THREE.Vector2(-100, -100);
-    const mouse3D = new THREE.Vector3(0, 0, 0);
-    const raycaster = new THREE.Raycaster();
-    const plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0); 
-
-    function updateMousePosition(clientX, clientY) {
-        const rect = container.getBoundingClientRect();
-        mouse.x = ((clientX - rect.left) / rect.width) * 2 - 1;
-        mouse.y = -((clientY - rect.top) / rect.height) * 2 + 1;
-        
-        raycaster.setFromCamera(mouse, camera);
-        raycaster.ray.intersectPlane(plane, mouse3D);
-    }
-
-    window.addEventListener('mousemove', (e) => updateMousePosition(e.clientX, e.clientY));
-    window.addEventListener('touchmove', (e) => updateMousePosition(e.touches[0].clientX, e.touches[0].clientY), { passive: false });
-
-    // --- ANIMATION LOOP ---
-    let time = 0;
-
-    function animate() {
-        requestAnimationFrame(animate);
-
-        const positions = particles.geometry.attributes.position.array;
-        const scales = particles.geometry.attributes.scale.array;
-
-        let i = 0, j = 0;
-        for (let ix = 0; ix < amountX; ix++) {
-            for (let iy = 0; iy < amountY; iy++) {
-                // 1. Smoother, elongated sine waves for obvious pathing
-                let y = Math.sin((ix * 0.08) + time) * 2.5 + Math.sin((iy * 0.15) + time) * 1.5;
-                let scale = (Math.sin((ix * 0.08) + time) + 1.5) * 1.5 + (Math.sin((iy * 0.15) + time) + 1) * 1.5;
-
-                // 2. Mouse Interaction
-                const dx = positions[i] - mouse3D.x;
-                const dz = positions[i + 2] - mouse3D.z;
-                const dist = Math.sqrt(dx * dx + dz * dz);
-
-                const interactRadius = 12;
-                if (dist < interactRadius) {
-                    const influence = (interactRadius - dist) / interactRadius;
-                    y += influence * 8; 
-                    scale += influence * 6; 
-                }
-
-                positions[i + 1] = y;
-                scales[j] = scale;
-
-                i += 3;
-                j++;
-            }
-        }
-
-        particles.geometry.attributes.position.needsUpdate = true;
-        particles.geometry.attributes.scale.needsUpdate = true;
-
-        time += 0.025; // Slightly slower, more majestic speed
-
-        // Gentle camera parallax
-        camera.position.x += (mouse.x * 5 - camera.position.x) * 0.05;
-        camera.lookAt(0, 0, 0);
-
-        renderer.render(scene, camera);
-    }
-
-    animate();
-
-    // --- RESIZE HANDLER ---
-    window.addEventListener('resize', () => {
-        const width = container.clientWidth;
-        const height = container.clientHeight;
-
-        camera.aspect = width / height;
-        camera.updateProjectionMatrix();
-
-        renderer.setSize(width, height);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    });
-
-    window.dispatchEvent(new Event('resize'));
-</script>
-
-
-
 	</body>
 
 </html>

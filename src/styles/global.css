@@ -5,6 +5,211 @@
 
 body {
   font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #111111;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.theme-toggle {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 auto;
+	width: clamp(1.45rem, 3.2vw, 2.6rem);
+	height: clamp(1.45rem, 3.2vw, 2.6rem);
+	color: #111111;
+	background: transparent;
+	border: 1px solid currentColor;
+	border-radius: 0;
+	box-shadow: none;
+	cursor: pointer;
+	transition:
+		background-color 0.3s ease,
+		border-color 0.3s ease,
+		color 0.3s ease,
+		opacity 0.2s ease;
+}
+
+.theme-toggle:hover {
+	background: #111111;
+	color: #ffffff;
+}
+
+.theme-toggle:active {
+	opacity: 0.65;
+}
+
+.theme-toggle:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 3px;
+}
+
+.theme-toggle svg {
+	width: clamp(0.75rem, 1.6vw, 1.25rem);
+	height: clamp(0.75rem, 1.6vw, 1.25rem);
+}
+
+.theme-toggle .sun-icon {
+	display: none;
+}
+
+.night-mode body {
+	background: #0e0f12;
+	color: #f3f4f6;
+}
+
+.night-mode .theme-toggle {
+	color: #f3f4f6;
+	background: transparent;
+	border-color: currentColor;
+}
+
+.night-mode .theme-toggle:hover {
+	color: #0e0f12;
+	background: #f3f4f6;
+}
+
+.night-mode .theme-toggle .sun-icon {
+	display: block;
+}
+
+.night-mode .theme-toggle .moon-icon {
+	display: none;
+}
+
+.night-mode .text-black {
+	color: #f3f4f6;
+}
+
+.night-mode .text-gray-600 {
+	color: #cbd5e1;
+}
+
+.night-mode .bg-black {
+	background-color: #f3f4f6;
+	color: #0e0f12;
+}
+
+.night-mode .bg-black svg,
+.night-mode .bg-black .text-white {
+	color: #0e0f12;
+}
+
+.night-mode .bg-\[\#E8E8E8\] {
+	background-color: #1b1d24;
+}
+
+.night-mode .hover\:bg-\[\#d4d4d4\]:hover {
+	background-color: #262936;
+}
+
+.night-mode img {
+	filter: brightness(0.92);
+}
+
+.night-mode #profile img,
+.night-mode #tech_stack img,
+.night-mode #contacts img {
+	filter: none;
+}
+
+.night-mode img[src*=".svg"],
+.night-mode #tech_stack img[src*=".svg"],
+.night-mode #contacts img[src*=".svg"] {
+	filter: brightness(0) invert(1);
+}
+
+	.sticky-section {
+		position: relative;
+		min-height: 300vh;
+	}
+
+	.sticky-wrapper {
+		position: sticky;
+		top: 0;
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+		background: white;
+	}
+
+	.sticky-grid {
+		display: grid;
+		grid-template-columns: 0.8fr 1.2fr;
+		width: 100%;
+		height: 100%;
+		gap: 4rem;
+		padding: 4rem 2rem;
+	}
+
+	.sticky-title {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	}
+
+	.sticky-title h1 {
+		font-size: clamp(2rem, 6vw, 7rem);
+		font-weight: 700;
+		line-height: 0.9;
+		position: sticky;
+		top: 20vh;
+	}
+
+	.cards {
+		position: relative;
+		height: 100%;
+	}
+
+	.scroll-card {
+		position: sticky;
+		top: 12vh;
+		background: #f3f3f3;
+		border-radius: 30px;
+		padding: 2rem;
+		margin-bottom: 2rem;
+		min-height: 65vh;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		box-shadow:
+			0 10px 30px rgba(0,0,0,0.05);
+
+		transition:
+			transform 0.4s ease,
+			opacity 0.4s ease;
+	}
+
+	.scroll-card:nth-child(2) {
+		top: 16vh;
+	}
+
+	.scroll-card:nth-child(3) {
+		top: 20vh;
+	}
+
+	.scroll-card:nth-child(4) {
+		top: 24vh;
+	}
+
+	@media (max-width: 768px) {
+		.sticky-grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+			padding: 2rem 1rem;
+		}
+
+		.sticky-title {
+			align-items: flex-start;
+		}
+
+		.scroll-card {
+			min-height: 55vh;
+			padding: 1.5rem;
+		}
+	}
 
