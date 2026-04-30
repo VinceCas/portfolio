@@ -17,13 +17,15 @@ import gitLogo from '../assets/logos/git.svg';
 import websiteImage from '../assets/images/website.png';
 import gameImage from '../assets/images/game.png';
 import eyewearImage from '../assets/images/eyewear.png';
+import eosTrailer from '../assets/video/EOS Trailer (long ver.).mp4';
 import linkedinLogo from '../assets/logos/linkedin.svg';
 import githubLogo from '../assets/logos/github.svg';
 import facebookLogo from '../assets/logos/facebook.svg';
 import gmailLogo from '../assets/logos/gmail.svg';
 import phoneLogo from '../assets/logos/phone.svg';
 
-const assetSrc = (asset) => typeof asset === 'string' ? asset : asset.src;
+type AssetSource = string | { src: string };
+const assetSrc = (asset: AssetSource) => typeof asset === 'string' ? asset : asset.src;
 ---
 
 <html lang="en">
@@ -56,11 +58,6 @@ const assetSrc = (asset) => typeof asset === 'string' ? asset : asset.src;
 			</section>
 		</div>
 
-
-		<!-- <div class="absolute -top-60 -right-90 w-[800px] h-[800px] -z-10 
-			bg-[radial-gradient(circle_at_center,_#676767_0%,_#f5f5f5_55%,_#ffffff_100%)]">
-			</div>
-		-->
 
 		<div class="mx-8 mt-8 sm:mx-34 sm:mt-16 md:mx-37 md:mt-14 lg:mx- lg:mt-16 xl:mx-[520px] xl:mt-[100px]">
 			<div id="main_div" class="flex flex-col gap-10">
@@ -179,7 +176,16 @@ const assetSrc = (asset) => typeof asset === 'string' ? asset : asset.src;
 					
 					<div class="grid grid-cols-2 gap-10">
 						<div> <img src={assetSrc(websiteImage)} alt="Joelskie E-commerce Website" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Joelskie E-commerce Website</p> </div>
-						<div> <img src={assetSrc(gameImage)} alt="Echoes of Maktan: Vengeance Unbound" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Echoes of Maktan: Vengeance Unbound</p> </div>
+						<button
+							class="project-video-trigger"
+							type="button"
+							data-video-open
+							aria-haspopup="dialog"
+							aria-controls="eos-video-modal"
+						>
+							<img src={assetSrc(gameImage)} alt="Echoes of Maktan: Vengeance Unbound" class="w-full object-cover">
+							<span class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Echoes of Maktan: Vengeance Unbound</span>
+						</button>
 						<div> <img src={assetSrc(eyewearImage)} alt="Smart Eyewear for Visually Impaire Individuals" class="w-full object-cover"> <p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px] text-center">Smart Eyewear for Visually Impaire Individuals</p> </div>
 					</div>
 				</div>
@@ -284,9 +290,35 @@ const assetSrc = (asset) => typeof asset === 'string' ? asset : asset.src;
 			</div>
 		</div>
 
+		<div
+			id="eos-video-modal"
+			class="video-modal"
+			role="dialog"
+			aria-modal="true"
+			aria-label="Echoes of Maktan trailer"
+			hidden
+		>
+			<div class="video-modal__panel">
+				<button class="video-modal__close" type="button" data-video-close aria-label="Close video">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+						<path d="M18 6 6 18"></path>
+						<path d="m6 6 12 12"></path>
+					</svg>
+				</button>
+				<video
+					id="eos-video"
+					src={assetSrc(eosTrailer)}
+					controls
+					playsinline
+					preload="metadata"
+				></video>
+			</div>
+		</div>
+
 		<script type="module" src="/scripts/minimal-3d.js"></script>
 		<script type="module" src="/scripts/section-snap.js"></script>
 		<script type="module" src="/scripts/reveal-on-scroll.js"></script>
+		<script type="module" src="/scripts/video-modal.js"></script>
 	</body>
 
 </html>
