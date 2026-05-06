@@ -2,6 +2,8 @@
 @import '@fontsource/inter/700.css';
 @import "tailwindcss";
 
+
+
 html {
 	scroll-behavior: smooth;
 	scroll-padding-block: clamp(1rem, 7vh, 5rem);

@@ -39,9 +39,10 @@ const assetSrc = (asset: AssetSource) => typeof asset === 'string' ? asset : ass
 		<script>
 			import '../scripts/theme-toggle.js';
 		</script>
+		<script src="//code.tidio.co/xnsbf6xdmvv90ikpvg3rr7ekrlcpfmew.js" async></script>
 	</head>
 
-
+	
 
 	<body class="m-0 p-0 overflow-x-hidden">
 
@@ -59,7 +60,7 @@ const assetSrc = (asset: AssetSource) => typeof asset === 'string' ? asset : ass
 		</div>
 
 
-		<div class="mx-8 mt-8 sm:mx-34 sm:mt-16 md:mx-37 md:mt-14 lg:mx- lg:mt-16 xl:mx-[520px] xl:mt-[100px]">
+		<div class="mx-8 mt-8 sm:mx-34 sm:mt-16 md:mx-37 md:mt-14 lg:mt-16 lg:mx-[180px] xl:mx-[280px] 2xl:mx-[520px] xl:mt-[100px]">
 			<div id="main_div" class="flex flex-col gap-10">
 
 				<div class="snap-section">
@@ -109,13 +110,13 @@ const assetSrc = (asset: AssetSource) => typeof asset === 'string' ? asset : ass
 							<p class="text-black text-[9px] sm:text-[13px] md:text-[15px] lg:text-[17px] xl:text-[18px] pt-1 md:pt-3 lg:pt-5">Bachelor of Science in Computer Science</p>
 						</div>
 						<div class="flex gap-2">
-							<a href="https://mail.google.com/mail/?view=cm&to=vincentcasuga17@gmail.com" target="_blank" class="bg-black text-[10px] md:text-[18px] w-18 px-4 py-2 h-6 md:w-[125px] md:py-5 text-white inline-flex items-center justify-center gap-1">
+							<a title="vincentjosh17@gmail.com" href="mailto:vincentcasuga17@gmail.com" target="_blank" class="bg-black text-[10px] md:text-[18px] w-18 px-4 py-2 h-6 md:w-[125px] md:py-5 text-white inline-flex items-center justify-center gap-1">
 								<svg viewBox="0 0 24 24" class="h-[1em] w-[1em] text-white" fill="currentColor" aria-hidden="true">
 									<path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
 								</svg>
 								Email
 							</a>
-							<a href="javascript:void(0)" 
+							<a title="09954536797" href="javascript:void(0)" 
 								onclick="navigator.clipboard.writeText('+639954536797').then(() => { const textSpan = document.getElementById('btn-text'); textSpan.innerText = 'Copied'; setTimeout(() => { textSpan.innerText = 'Call'; }, 2000); })"
 								class="bg-black text-[10px] md:text-[18px] w-18 px-4 py-2 h-6 md:w-[125px] md:py-5 text-white inline-flex items-center justify-center gap-1 transition-all duration-300">
 							    <svg viewBox="0 0 24 24" class="h-[1em] w-[1em] text-white" fill="currentColor" aria-hidden="true">
@@ -139,6 +140,11 @@ const assetSrc = (asset: AssetSource) => typeof asset === 'string' ? asset : ass
 						<br><br>
 						Lastly, beyond my programming background, I am also confident in my abilities in terms of digital art creation, video editing, image editing, and 3d asset creation. These skills enhances my ability to develop a more engaging and creative solutions.
 					</p>
+					<a href="/Resume.pdf"  target="_blank"
+						class="bg-black text-[10px] md:text-[18px] w-[150px] px-4 py-2 h-6 md:w-[250px] mt-7 md:py-5 text-white inline-flex items-center justify-center gap-1">
+						Download Resume
+					</a>
+					
 				</div>
 				</div>
 
@@ -264,7 +270,7 @@ const assetSrc = (asset: AssetSource) => typeof asset === 'string' ? asset : ass
     				        </div>
     				    </a>
 					
-    				    <a href="https://mail.google.com/mail/u/0/?to=vincentcasuga17@gmail.com&fs=1&tf=cm" target="_blank">
+    				    <a href="mailto:vincentcasuga17@gmail.com" target="_blank">
     				        <div class="flex items-center gap-3">
     				            <div class="w-6 sm:w-8 md:w-10 flex items-center justify-center shrink-0">
     				                <img src={assetSrc(gmailLogo)} alt="gmail" class="w-full h-full object-contain">
@@ -319,6 +325,17 @@ const assetSrc = (asset: AssetSource) => typeof asset === 'string' ? asset : ass
 		<script type="module" src="/scripts/section-snap.js"></script>
 		<script type="module" src="/scripts/reveal-on-scroll.js"></script>
 		<script type="module" src="/scripts/video-modal.js"></script>
+
+		
+		<script>
+		    window.addEventListener('keydown', function(e) {
+				// Prevent spacebar from scrolling the page when focused on interactive elements
+		        const activeTag = document.activeElement ? document.activeElement.tagName.toUpperCase() : '';
+		        if (e.code === 'Space' && (activeTag === 'IFRAME' || activeTag === 'INPUT' || activeTag === 'TEXTAREA')) {
+		            e.stopPropagation();
+		        }
+		    }, { capture: true, passive: false }); 
+		</script>
 	</body>
 
 </html>
