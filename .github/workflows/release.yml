@@ -7,6 +7,9 @@ on:
 permissions:
   contents: write
 
+env:
+  PRODUCTION_URL: https://vincent-casuga.netlify.app  # <-- change to your URL
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -25,5 +28,6 @@ jobs:
         with:
           tag: ${{ steps.tag_version.outputs.new_tag }}
           name: Release ${{ steps.tag_version.outputs.new_tag }}
-          body: ${{ steps.tag_version.outputs.changelog }}
-          generateReleaseNotes: true
+          body: |
+            ${{ steps.tag_version.outputs.changelog }}
+            
