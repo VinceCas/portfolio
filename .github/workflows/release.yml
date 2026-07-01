@@ -8,7 +8,7 @@ permissions:
   contents: write
 
 env:
-  PRODUCTION_URL: https://vincent-casuga.netlify.app  # <-- change to your URL
+  PRODUCTION_URL: https://vincent-casuga.netlify.app  # <-- your site
 
 jobs:
   release:
@@ -23,11 +23,23 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           default_bump: patch
 
+      - name: Build release notes
+        id: notes
+        run: |
+          {
+            echo "body<<EOF"
+            echo "${{ steps.tag_version.outputs.changelog }}"
+            echo ""
+            echo "---"
+            echo ""
+            echo "🚀 **Production Website:** ${{ env.PRODUCTION_URL }}"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
       - name: Create a GitHub Release
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.tag_version.outputs.new_tag }}
           name: Release ${{ steps.tag_version.outputs.new_tag }}
-          body: |
-            ${{ steps.tag_version.outputs.changelog }}
-            
+          body: ${{ steps.notes.outputs.body }}
+        
