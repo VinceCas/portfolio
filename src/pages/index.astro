@@ -30,7 +30,7 @@ const assetSrc = (asset: AssetSource) =>
   typeof asset === "string" ? asset : asset.src;
 const calendar = await getGithubContributions("VinceCas");
 
-const getContributionColor = (count) => {
+const getContributionColor = (count: number) => {
   if (count === 0) return "#ECECEC";
   if (count < 3) return "#D6D6D6";
   if (count < 6) return "#A8A8A8";
@@ -50,8 +50,7 @@ const getContributionColor = (count) => {
     <script>
       import "../scripts/theme-toggle.js";
     </script>
-    <script src="//code.tidio.co/xnsbf6xdmvv90ikpvg3rr7ekrlcpfmew.js" async
-    ></script>
+    <script src="//code.tidio.co/xnsbf6xdmvv90ikpvg3rr7ekrlcpfmew.js" async></script>
   </head>
 
   <body class="m-0 p-0 overflow-x-hidden">
@@ -225,7 +224,7 @@ const getContributionColor = (count) => {
               more engaging and creative solutions.
             </p>
             <a
-              href="/Resume.pdf"
+              href="/Resume(latest 2026).pdf"
               target="_blank"
               class="bg-black text-[10px] md:text-[18px] w-[150px] px-4 py-2 h-6 md:w-[250px] mt-7 md:py-5 text-white inline-flex items-center justify-center gap-1"
             >
@@ -649,7 +648,7 @@ const getContributionColor = (count) => {
                 <p
                   class="text-[9px] sm:text-[13px] md:text-[15px] lg:text-[18px]"
                 >
-                  Oracle
+                  UBP Xcellerator
                 </p>
               </a>
             </div>
